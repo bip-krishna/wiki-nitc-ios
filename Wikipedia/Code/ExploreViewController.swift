@@ -412,8 +412,10 @@ class ExploreViewController: ColumnarCollectionViewController, ExploreCardViewCo
         ]
         
         if NITCWikiFeatureFlags.current.isNITCWiki {
-            // Only show self-contained or NITC wiki content groups, exclude legacy Wikipedia cards
-            predicates.append(NSPredicate(format: "siteURLString == NULL || siteURLString CONTAINS %@", "fosscell.org"))
+            // Only show supported NITC content group kinds (ContinueReading=1, RelatedPages=3, Random=6)
+            let allowedKinds: [Int32] = [1, 3, 6]
+            predicates.append(NSPredicate(format: "contentGroupKindInteger IN %@", allowedKinds))
+            predicates.append(NSPredicate(format: "siteURLString == NULL || siteURLString CONTAINS[cd] %@", "fosscell.org"))
         } else if isEmbeddedInHomeTab {
             // Remove because you read / related articles
             predicates.append(NSPredicate(format: "contentGroupKindInteger != %@", NSNumber(value: 3)))

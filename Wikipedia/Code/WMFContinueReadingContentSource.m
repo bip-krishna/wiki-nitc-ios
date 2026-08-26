@@ -100,10 +100,11 @@ static NSTimeInterval const WMFTimeBeforeDisplayingLastReadArticle = 60 * 60 * 2
         }
 
         NSURL *continueReadingURL = [WMFContentGroup continueReadingContentGroupURLForArticleURL:lastRead];
+        NSURL *groupSiteURL = lastRead.wmf_siteURL ?: [NSURL URLWithString:@"https://wiki.fosscell.org"];
         [moc fetchOrCreateGroupForURL:continueReadingURL
                                ofKind:WMFContentGroupKindContinueReading
                               forDate:userData.viewedDate
-                          withSiteURL:nil
+                          withSiteURL:groupSiteURL
                     associatedContent:nil
                    customizationBlock:^(WMFContentGroup *_Nonnull group) {
                        group.contentPreview = lastRead;

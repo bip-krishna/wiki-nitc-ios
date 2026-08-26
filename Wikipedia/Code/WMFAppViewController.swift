@@ -358,7 +358,7 @@ final class WMFAppViewController: UITabBarController, AppTabBarDelegate {
         self.delegate = self
 
         let nav1: WMFComponentNavigationController
-        if WMFHomeDataController.shared.persistedHomeTabAssignment() == .groupB {
+        if WMFHomeDataController.shared.persistedHomeTabAssignment() == .groupB && !NITCWikiFeatureFlags.current.isNITCWiki {
             let coordinator = HomeCoordinator(theme: theme, dataStore: dataStore)
             let homeViewController = coordinator.makeHomeViewController()
             nav1 = rootNavigationController(with: homeViewController)

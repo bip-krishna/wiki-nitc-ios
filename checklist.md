@@ -54,3 +54,9 @@ Tracking all changes made to port the Wikimedia iOS app to NITCWiki targeting `w
 - [x] `[MODIFY] Wikipedia/Code/LinkCoordinator.swift` — Prioritize NITC URL routing to native `ArticleViewController` for in-app cross links
 - [x] `[MODIFY] WMF Framework/Configuration.swift` — Add `fosscell.org` to `inAppWebViewRoutingDomains`
 - [x] `[MODIFY] WMF Framework/WMFExploreFeedContentController.m` — Add null-safe language code fallback (`?: @"en"`) in `updatedSortOrder` loop
+- [x] `[MODIFY] Wikipedia/Code/ExploreViewController.swift` — Restrict explore feed to supported NITC content group kinds (`Random`, `ContinueReading`, `RelatedPages`) and exclude legacy cards
+- [x] `[MODIFY] WMF Framework/WMFExploreFeedContentController.m` — Purge all unsupported content group kinds and non-NITC groups synchronously on launch
+- [x] `[MODIFY] Wikipedia/Code/RandomArticleFetcher.swift` — Fetch live random articles directly from NITC Wiki MediaWiki API (`wiki.fosscell.org/api.php`)
+- [x] `[MODIFY] WMFData/Sources/WMFData/Data Controllers/Home/WMFHomeDataController.swift` — Suppress `groupB` Home tab experiment assignment on NITC Wiki
+- [x] `[MODIFY] Wikipedia/Code/WMFAppViewController.swift` — Always route landing tab to `exploreViewController` in NITC mode
+- [x] `[MODIFY] Wikipedia/Code/WMFContinueReadingContentSource.m` — Explicitly attach `wiki.fosscell.org` siteURL to ContinueReading content groups

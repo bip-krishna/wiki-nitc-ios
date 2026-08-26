@@ -52,7 +52,8 @@ import WMFTestKitchen
         if let experimentStore {
             let controller = WMFExperimentsDataController(store: experimentStore)
             let bucket = try? controller.determineBucketForExperiment(.homeTab, withPercentage: 50)
-            homeTabAssignment = bucket == .homeTabGroupB ? .groupB : .control
+            let isStandaloneWiki = WMFProject.wikipedia(WMFLanguage(languageCode: "en", languageVariantCode: nil)).siteURL?.host?.contains("fosscell.org") == true
+            homeTabAssignment = (bucket == .homeTabGroupB && !isStandaloneWiki) ? .groupB : .control
         } else {
             homeTabAssignment = .control
         }
