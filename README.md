@@ -1,5 +1,8 @@
-# Wikipedia iOS
-The official Wikipedia iOS app.
+# NITC Wiki for iOS
+
+An iOS fork for the NITC Wiki, maintained in [Wiki-NITC’s upstream project](https://github.com/Wiki-NITC/wiki-nitc-ios) and based on Wikimedia’s Wikipedia iOS app. The build instructions and contributor guidance below come from the Wikimedia project.
+
+[Build and run](#building-and-running) · [Development guidelines](#development-guidelines) · [NITC Wiki](https://wiki.fosscell.org)
 
 [![Wikipedia](https://circleci.com/gh/wikimedia/wikipedia-ios.svg?style=shield)](https://github.com/wikimedia/wikipedia-ios)
 [![MIT license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/wikimedia/wikipedia-ios/main/LICENSE.txt)
